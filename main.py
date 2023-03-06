@@ -27,6 +27,9 @@ def main():
 
     languages = [language[0] for language in result if float(language[1]) > 5]
 
+    if "javascript" in languages or "typescript" in languages:
+        languages.append("node")
+
     if DEBUG:
         print("Languages retained: " + str(languages))
 
@@ -48,7 +51,7 @@ def main():
     if DEBUG:
         print("Gitignore formatted: " + str(gitignore))
 
-    regex = "^(?:.+/)?(" + '|'.join([re.escape(line) for line in gitignore]) + ")(?:(?P<ps_d>/).*)?$$"
+    regex = "^(?:.+/)?(" + '|'.join([re.escape(line) for line in gitignore]) + ")(?:(?P<ps_d>/).*)?$"
 
     print(regex)
 
