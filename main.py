@@ -27,7 +27,7 @@ def main():
 
     languages = [language[0] for language in result if float(language[1]) > 5]
 
-    if "javascript" in languages or "typescript" in languages:
+    if "javascript" in (name.lower() for name in languages) or "TypeScript" in (name.lower() for name in languages):
         languages.append("node")
 
     if DEBUG:
